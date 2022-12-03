@@ -2,14 +2,14 @@ import numpy as np
 import pygame
 import random
  
-size = width, height = 1366, 768
+size = width, height = 1440, 900
 fps = 60
 minu = -max(height, width//2)
  
 screen = pygame.display.set_mode(size, pygame.FULLSCREEN)
 clock = pygame.time.Clock()
 pygame.font.init()
-myfont = pygame.font.Font('SantasSleighFull Deluxe.ttf', 120)
+myfont = pygame.font.Font('Welcome Christmas.ttf', 120)
 textsurface = myfont.render('Some Text', True, (255, 0, 0))
 
 snow_list = np.random.randint(0, max(width, height*2), (50, 2))
@@ -62,8 +62,8 @@ while True:
         if snow_list3[i][0] < 0:
             snow_list3[i][0] = width
 
-    textsurface = myfont.render('Happy New Year!', True, [random.randint(150, 255)]*3)
-    screen.blit(textsurface, (355, 315))
+    textsurface = myfont.render('HAPPY NEW YEAR!', True, [255 * random.random() if random.random() > 0.833 else 255]*3)
+    screen.blit(textsurface, (width // 2 - 475, height // 2 - 100))
 
     pygame.display.flip()
     clock.tick(fps)
